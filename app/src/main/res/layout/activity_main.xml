@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
+    android:orientation="vertical"
+    tools:context=".ui.activity.MainActivity">
     <Button
         android:id="@+id/load"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="load"
+        android:background="@color/black"
+        android:textColor="@color/white"
         android:text="下载插件"
         />
 
@@ -19,8 +21,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="open"
+        android:background="@color/white"
+        android:textColor="@color/black"
         android:text="打开插件"
-        app:layout_constraintTop_toBottomOf="@+id/load"
         />
-
-</android.support.constraint.ConstraintLayout>
+    <Button
+        android:id="@+id/change_skin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="skin"
+        android:background="@color/black"
+        android:textColor="@color/white"
+        android:text="开始换肤"
+        />
+</LinearLayout>

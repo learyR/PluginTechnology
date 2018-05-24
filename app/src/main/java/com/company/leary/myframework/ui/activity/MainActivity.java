@@ -1,24 +1,27 @@
-package com.company.leary.myframework;
+package com.company.leary.myframework.ui.activity;
 
 import android.Manifest;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
+import com.company.leary.myframework.R;
+import com.company.leary.myframework.base.BaseActivity;
+import com.company.leary.myframework.model.plugin.PluginManager;
+import com.company.leary.myframework.model.skin.SkinManager;
 
 import java.io.File;
 
 /**
  * @author leary
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +29,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         requestPermission(PERMISSIONS);
         PluginManager.getInstance().setContext(this);
+        File skinFile = new File(Environment.getExternalStorageDirectory(), "skina.apk");
+        SkinManager.getInstance().loadApk(skinFile.getPath());
     }
     public void load(View view) {
-        File file = new File(Environment.getExternalStorageDirectory(), "plugin.apk");
-        PluginManager.getInstance().loadApk(file.getPath());
+        File pluginFile = new File(Environment.getExternalStorageDirectory(), "plugin.apk");
+        PluginManager.getInstance().loadApk(pluginFile.getPath());
     }
 
     public void open(View view) {
@@ -37,7 +42,10 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("className", PluginManager.getInstance().getPackageInfo().activities[0].name);
         startActivity(intent);
     }
-
+    //开始换肤
+    public void skin(View view) {
+        skinFactory.apply();
+    }
 
 
     //=========权限============
@@ -82,4 +90,6 @@ public class MainActivity extends AppCompatActivity {
             super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
+
+
 }

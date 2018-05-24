@@ -1,4 +1,4 @@
-package com.company.leary.myframework;
+package com.company.leary.myframework.model.plugin;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;

@@ -1,10 +1,11 @@
-package com.company.leary.myframework;
+package com.company.leary.myframework.ui.activity;
 
 import android.content.Intent;
 import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.company.leary.myframework.model.plugin.PluginManager;
 import com.company.leary.standlibrary.StandInterface;
 
 import java.lang.reflect.Constructor;

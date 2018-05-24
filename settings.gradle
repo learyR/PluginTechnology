@@ -1,1 +1,1 @@
-include ':app', ':standlibrary', ':taopiaopiao'
+include ':app', ':standlibrary', ':taopiaopiao', ':skina'
